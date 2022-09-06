@@ -1,6 +1,6 @@
 <template>
-  <user-card-list :user-list="userList" />
-  <van-empty v-if="!userList || userList.length < 1" description="数据为空" />
+  <user-card-list :user-list="userList"/>
+  <van-empty v-if="!userList || userList.length < 1" description="数据为空"/>
 </template>
 
 <script setup>
