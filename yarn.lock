@@ -20,6 +20,11 @@
     "estree-walker" "^2.0.1"
     "picomatch" "^2.2.2"
 
+"@types/node@^18.11.0":
+  "integrity" "sha512-IOXCvVRToe7e0ny7HpT/X9Rb2RYtElG1a+VshjwT00HxrM2dWBApHQoqsI6WiY7Q03vdf2bCrIGzVrkF/5t10w=="
+  "resolved" "https://registry.npmmirror.com/@types/node/-/node-18.11.0.tgz"
+  "version" "18.11.0"
+
 "@vant/icons@^1.8.0":
   "integrity" "sha512-sKfEUo2/CkQFuERxvkuF6mGQZDKu3IQdj5rV9Fm0weJXtchDSSQ+zt8qPCNUEhh9Y8shy5PzxbvAfOOkCwlCXg=="
   "resolved" "https://registry.npmmirror.com/@vant/icons/-/icons-1.8.0.tgz"

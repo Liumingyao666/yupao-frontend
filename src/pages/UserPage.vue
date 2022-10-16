@@ -28,11 +28,11 @@ import {getCurrentUser} from "../services/user";
 
 const user = ref();
 
+const router = useRouter();
+
 onMounted(async () => {
   user.value = await getCurrentUser();
 })
-
-const router = useRouter();
 
 const toEdit = (editKey: string, editName: string, currentValue: string) => {
   router.push({
