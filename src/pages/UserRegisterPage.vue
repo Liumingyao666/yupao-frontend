@@ -5,7 +5,7 @@
           v-model="userAccount"
           name="userAccount"
           label="账号"
-          placeholder="请输入账号"
+          placeholder="请输入账号：账户不小于4位"
           :rules="[{ required: true, message: '请填写用户名' }]"
       />
       <van-field
@@ -13,17 +13,30 @@
           type="password"
           name="userPassword"
           label="密码"
-          placeholder="请输入密码"
+          placeholder="请输入密码：密码不小于9位"
           :rules="[{ required: true, message: '请填写密码' }]"
+      />
+      <van-field
+          v-model="checkUserPassword"
+          type="password"
+          name="checkUserPassword"
+          label="确认密码"
+          placeholder="请再次输入密码"
+          :rules="[{ required: true, message: '请填写密码' }]"
+      />
+      <van-field
+          v-model="planetCode"
+          type="password"
+          name="planetCode"
+          label="编号"
+          placeholder="请输入编号：编号不大于5位"
+          :rules="[{ required: true, message: '请填写编号' }]"
       />
     </van-cell-group>
     <div style="margin: 16px;">
       <van-button round block type="primary" native-type="submit">
         提交
       </van-button>
-    </div>
-    <div>
-      <van-button  round block type="primary" to="/user/register">若无账号，请先注册</van-button>
     </div>
   </van-form>
 </template>
@@ -39,20 +52,24 @@ const route = useRoute();
 
 const userAccount = ref('');
 const userPassword = ref('');
+const checkUserPassword = ref('');
+const planetCode = ref('');
 
 const onSubmit = async () => {
-  const res = await myAxios.post('/user/login', {
+  const res = await myAxios.post('/user/register', {
     userAccount: userAccount.value,
     userPassword: userPassword.value,
+    checkUserPassword: checkUserPassword.value,
+    planetCode: planetCode.value,
   })
-  console.log(res, '用户登录');
+  console.log(res, '用户注册');
   if (res.code === 0 && res.data) {
-    Toast.success('登录成功');
+    Toast.success('注册成功');
     // 跳转到之前的页面
     const redirectUrl = route.query?.redirect as string ?? '/';
     window.location.href = redirectUrl;
   } else {
-    Toast.fail('登录失败');
+    Toast.fail('注册失败');
   }
 };
 
